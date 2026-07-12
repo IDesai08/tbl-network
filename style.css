@@ -1,20 +1,22 @@
 /* ============================================
    TBL — Twitter Baseball League
-   Design: stadium scoreboard. Dark field-green
-   panels, amber digit readouts, chalk-white type.
+   Design: stadium scoreboard, navy + red.
+   Dark navy field, red accent, chalk-white type.
    ============================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Teko:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;700&display=swap');
 
 :root{
-  --field:      #0f3324;   /* deep field green — primary dark bg */
-  --field-2:    #0a2419;   /* darker panel shade */
-  --chalk:      #f5f2e6;   /* chalk white — primary text on dark */
-  --dirt:       #b06b34;   /* infield dirt — warm accent */
-  --amber:      #f2b705;   /* scoreboard digit amber — highlight/CTA */
-  --foul:       #c1432b;   /* foul line red — loss/alert */
-  --ink:        #16221b;   /* body text on light bg */
-  --line:       rgba(245,242,230,0.14);
+  --navy:       #0e1b3a;   /* primary dark bg */
+  --navy-deep:  #081120;   /* darkest panel / nav */
+  --panel:      #16294f;   /* card / panel surface on dark bg */
+  --panel-2:    #1c3260;   /* lighter panel for hover/alt rows */
+  --white:      #f5f6f8;   /* primary text on dark */
+  --muted:      #a9b3c9;   /* secondary text on dark */
+  --red:        #c8102e;   /* primary accent — CTA, highlight, active */
+  --red-deep:   #8f0c20;   /* hover/darker red */
+  --steel:      #3d5a94;   /* secondary accent / dividers */
+  --line:       rgba(245,246,248,0.12);
 
   --display: 'Teko', sans-serif;
   --body: 'Inter', sans-serif;
@@ -25,8 +27,8 @@
 html{ scroll-behavior: smooth; }
 body{
   margin: 0;
-  background: var(--chalk);
-  color: var(--ink);
+  background: var(--navy);
+  color: var(--white);
   font-family: var(--body);
   line-height: 1.5;
 }
@@ -36,8 +38,8 @@ img{ max-width: 100%; display: block; }
 
 /* ---------- Scoreboard nav ribbon ---------- */
 .tbl-nav{
-  background: var(--field);
-  border-bottom: 4px solid var(--amber);
+  background: var(--navy-deep);
+  border-bottom: 4px solid var(--red);
   position: sticky;
   top: 0;
   z-index: 50;
@@ -56,10 +58,10 @@ img{ max-width: 100%; display: block; }
   font-weight: 700;
   font-size: 1.9rem;
   letter-spacing: 0.03em;
-  color: var(--chalk);
+  color: var(--white);
   white-space: nowrap;
 }
-.tbl-brand span{ color: var(--amber); }
+.tbl-brand span{ color: var(--red); }
 .tbl-links{
   display: flex;
   gap: 0.15rem;
@@ -70,16 +72,16 @@ img{ max-width: 100%; display: block; }
   text-transform: uppercase;
 }
 .tbl-links a{
-  color: var(--chalk);
-  opacity: 0.75;
+  color: var(--white);
+  opacity: 0.7;
   padding: 0.45rem 0.65rem;
   border-radius: 3px;
 }
 .tbl-links a:hover{ opacity: 1; }
 .tbl-links a.active{
   opacity: 1;
-  color: var(--field);
-  background: var(--amber);
+  color: var(--white);
+  background: var(--red);
 }
 
 /* ---------- Page shell ---------- */
@@ -96,7 +98,7 @@ main{
   font-size: 0.72rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--dirt);
+  color: var(--red);
 }
 h1{
   font-family: var(--display);
@@ -104,31 +106,31 @@ h1{
   font-size: 2.6rem;
   letter-spacing: 0.01em;
   margin: 0.1rem 0 0.3rem;
-  color: var(--field);
+  color: var(--white);
 }
 h2{
   font-family: var(--display);
   font-weight: 600;
   font-size: 1.5rem;
-  color: var(--field);
+  color: var(--white);
   margin: 1.6rem 0 0.6rem;
 }
-p.lede{ color: #445; max-width: 60ch; }
+p.lede{ color: var(--muted); max-width: 60ch; }
 
 /* ---------- Scoreboard panel (signature element) ---------- */
 .scorepanel{
-  background: var(--field);
-  color: var(--chalk);
+  background: var(--navy-deep);
+  color: var(--white);
   border-radius: 6px;
   padding: 1.1rem 1.2rem;
-  border-bottom: 4px solid var(--amber);
+  border-bottom: 4px solid var(--red);
 }
 .scorepanel .label{
   font-family: var(--mono);
   font-size: 0.7rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--amber);
+  color: var(--red);
   margin-bottom: 0.4rem;
 }
 .matchup{
@@ -147,11 +149,11 @@ p.lede{ color: #445; max-width: 60ch; }
 .team-slot .record{
   font-family: var(--mono);
   font-size: 0.8rem;
-  color: rgba(245,242,230,0.65);
+  color: var(--muted);
 }
 .matchup .vs{
   font-family: var(--mono);
-  color: var(--amber);
+  color: var(--red);
   font-size: 0.85rem;
 }
 
@@ -163,23 +165,23 @@ p.lede{ color: #445; max-width: 60ch; }
   margin-top: 1.4rem;
 }
 .tile{
-  background: #fff;
-  border: 1px solid rgba(15,51,36,0.15);
-  border-left: 4px solid var(--dirt);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--red);
   border-radius: 4px;
   padding: 0.9rem 1rem;
   font-family: var(--display);
   font-size: 1.25rem;
-  color: var(--field);
+  color: var(--white);
   letter-spacing: 0.02em;
-  transition: transform 0.12s ease, border-color 0.12s ease;
+  transition: transform 0.12s ease, border-color 0.12s ease, background 0.12s ease;
 }
-.tile:hover{ border-left-color: var(--amber); transform: translateX(2px); }
+.tile:hover{ background: var(--panel-2); transform: translateX(2px); }
 .tile small{
   display: block;
   font-family: var(--body);
   font-size: 0.78rem;
-  color: #667;
+  color: var(--muted);
   font-weight: 500;
   letter-spacing: 0;
   text-transform: none;
@@ -192,11 +194,11 @@ table.stats{
   border-collapse: collapse;
   font-family: var(--mono);
   font-size: 0.92rem;
-  background: #fff;
+  background: var(--panel);
 }
 table.stats th{
-  background: var(--field);
-  color: var(--chalk);
+  background: var(--navy-deep);
+  color: var(--white);
   font-family: var(--body);
   font-weight: 600;
   font-size: 0.72rem;
@@ -207,16 +209,17 @@ table.stats th{
 }
 table.stats td{
   padding: 0.55rem 0.7rem;
-  border-bottom: 1px solid rgba(15,51,36,0.1);
+  border-bottom: 1px solid var(--line);
+  color: var(--white);
 }
-table.stats tbody tr:nth-child(odd){ background: rgba(15,51,36,0.035); }
+table.stats tbody tr:nth-child(odd){ background: var(--panel-2); }
 table.stats td.num{ text-align: right; }
 table.stats td.team-name{ font-family: var(--body); font-weight: 600; }
 
 /* ---------- Cards (teams, rules, rankings) ---------- */
 .card{
-  background: #fff;
-  border: 1px solid rgba(15,51,36,0.12);
+  background: var(--panel);
+  border: 1px solid var(--line);
   border-radius: 6px;
   padding: 1rem 1.1rem;
   margin-bottom: 0.75rem;
@@ -224,16 +227,17 @@ table.stats td.team-name{ font-family: var(--body); font-weight: 600; }
 .card h3{
   font-family: var(--display);
   font-size: 1.35rem;
-  color: var(--field);
+  color: var(--white);
   margin: 0 0 0.3rem;
   letter-spacing: 0.02em;
 }
+.card p{ color: var(--muted); }
 .rank-badge{
   display: inline-block;
   font-family: var(--mono);
   font-weight: 700;
-  color: var(--field);
-  background: var(--amber);
+  color: var(--white);
+  background: var(--red);
   border-radius: 3px;
   padding: 0.1rem 0.5rem;
   margin-right: 0.5rem;
@@ -253,16 +257,16 @@ form.tbl-form label{
   font-size: 0.72rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--dirt);
+  color: var(--red);
 }
 form.tbl-form input, form.tbl-form textarea, form.tbl-form select{
   font-family: var(--body);
   font-size: 1rem;
   padding: 0.55rem 0.65rem;
-  border: 1px solid rgba(15,51,36,0.25);
+  border: 1px solid var(--steel);
   border-radius: 4px;
-  background: #fff;
-  color: var(--ink);
+  background: var(--navy-deep);
+  color: var(--white);
 }
 form.tbl-form textarea{ resize: vertical; min-height: 70px; }
 .row-2{ display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; }
@@ -272,33 +276,34 @@ button, .btn{
   font-size: 1.05rem;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  background: var(--field);
-  color: var(--chalk);
+  background: var(--steel);
+  color: var(--white);
   border: none;
   border-radius: 4px;
   padding: 0.6rem 1.1rem;
   cursor: pointer;
   width: fit-content;
 }
-button:hover{ background: #164632; }
-button.amber{ background: var(--amber); color: var(--field); }
-button.danger{ background: var(--foul); color: var(--chalk); }
+button:hover{ background: #4d6cab; }
+button.amber{ background: var(--red); color: var(--white); }
+button.amber:hover{ background: var(--red-deep); }
+button.danger{ background: var(--red-deep); color: var(--white); }
 button:focus-visible, a:focus-visible, input:focus-visible{
-  outline: 3px solid var(--amber);
+  outline: 3px solid var(--red);
   outline-offset: 2px;
 }
 
 .msg{ font-family: var(--mono); font-size: 0.85rem; margin-top: 0.4rem; }
-.msg.error{ color: var(--foul); }
-.msg.ok{ color: #1f7a4d; }
+.msg.error{ color: #ff6b6b; }
+.msg.ok{ color: #6fd694; }
 
 .dash-tabs{ display: flex; gap: 0.4rem; margin-bottom: 1.2rem; flex-wrap: wrap; }
 .dash-tabs button{
-  background: #fff;
-  color: var(--field);
-  border: 1px solid rgba(15,51,36,0.25);
+  background: var(--panel);
+  color: var(--white);
+  border: 1px solid var(--steel);
 }
-.dash-tabs button.active{ background: var(--field); color: var(--chalk); }
+.dash-tabs button.active{ background: var(--red); border-color: var(--red); }
 .dash-section{ display: none; }
 .dash-section.active{ display: block; }
 .list-row{
@@ -316,7 +321,7 @@ footer{
   text-align: center;
   font-family: var(--mono);
   font-size: 0.75rem;
-  color: #667;
+  color: var(--muted);
   padding: 2rem 1rem 3rem;
 }
 

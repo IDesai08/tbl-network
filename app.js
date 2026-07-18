@@ -148,7 +148,7 @@ async function renderTeams(){
 
   el.innerHTML = teams.map(t => `
     <div class="card">
-      <h3>${logoImg(t.logo_url, t.name, 60)} ${escapeHtml(t.name)} <span style="opacity:.5">${escapeHtml(t.abbr)}</span></h3>
+      <h3>${logoImg(t.logo_url, t.name, 100)} ${escapeHtml(t.name)} <span style="opacity:.5">${escapeHtml(t.abbr)}</span></h3>
       <p style="font-family:var(--mono); font-size:.85rem; opacity:.7;">${t.wins}-${t.losses} · ${pct(t.wins, t.losses)}</p>
       ${t.blurb ? `<p>${escapeHtml(t.blurb)}</p>` : ""}
     </div>`).join("");

@@ -124,10 +124,10 @@ async function renderSchedule(){
       <td class="num">${g.week ?? "-"}</td>
       <td>${g.game_date || "TBD"}</td>
       <td>
-        ${logoImg(logos[(g.away_team||"").toLowerCase()], g.away_team, 35)}
+        ${logoImg(logos[(g.away_team||"").toLowerCase()], g.away_team, 50)}
         ${escapeHtml(g.away_team)}
         @
-        ${logoImg(logos[(g.home_team||"").toLowerCase()], g.home_team, 35)}
+        ${logoImg(logos[(g.home_team||"").toLowerCase()], g.home_team, 50)}
         ${escapeHtml(g.home_team)}
       </td>
       <td>${g.status === "final" ? `${g.away_score} – ${g.home_score}` : "—"}</td>
